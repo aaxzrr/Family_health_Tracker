@@ -1,20 +1,21 @@
 from flask import Flask, request, jsonify
 import numpy as np
+import joblib
 import tensorflow as tf
 
 app = Flask(__name__)
 
 model = tf.keras.models.load_model('path_to_your_model.h5')
 class_names = [
-    'Walking',  # A
-    'Jogging',  # B
-    'Stairs',   # C
-    'Sitting',  # D
-    'Standing', # E
-    'Kicking Soccer Ball', # M
-    'Playing Catch w/Tennis Ball', # O
-    'Dribbling Basketball',  # P
-    'Writing',  # Q
+    'Walking',  
+    'Jogging',  
+    'Stairs',   
+    'Sitting',  
+    'Standing', 
+    'Kicking Soccer Ball', 
+    'Playing Catch w/Tennis Ball', 
+    'Dribbling Basketball',  
+    'Writing',  
 ]
 
 class_to_category = {
@@ -29,10 +30,11 @@ class_to_category = {
     'Writing': 'Writing',
 }
 
+scaler = joblib.load(r'D:\bangkit\capstone\Family_health_Tracker\ML_workspace\daily_activity\data_array.pkl')
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.json
-    X_input = np.array(data)  
+    X_input = np.array(scaler)  
 
     # Validasi dimensi input
     if len(X_input.shape) != 4 or X_input.shape[1:] != (1, 80, 3):
