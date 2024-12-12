@@ -8,7 +8,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-image: url('/asset/bg.jpg'); /* Ganti dengan URL foto Anda */
+    background-image: url('/Website/asset/bg.jpg'); /* Ganti dengan URL foto Anda */
     background-size: cover;
     background-position: center;
     position: relative;
