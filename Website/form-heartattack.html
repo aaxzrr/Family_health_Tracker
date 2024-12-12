@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Health Tracker | Predict</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <!-- FONt Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/logo (1).png">
+
+</head>
+<body>
+    
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="assets/logo (1).png" alt="logo">
+                </span>
+
+                <div class="text header-text">
+                    <span class="name">Family Health</span>
+                    <span class="name">Tracker</span>
+                </div>
+            </div>
+
+            <i class="fa-solid fa-circle-chevron-right toggle"></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="index.html">
+                            <i class="fa-solid fa-house icon"></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="form-heartattack.html">
+                            <i class="fa-solid fa-heart-pulse icon"></i>
+                            <span class="text nav-text">Predict</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class="fa-solid fa-people-roof icon"></i>
+                            <span class="text nav-text">Family</span>
+                        </a>
+                    </li>
+                    <!-- <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-stopwatch icon'></i>
+                            <span class="text nav-text">Steps</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-bell icon'></i>
+                            <span class="text nav-text">Notifikasi</span>
+                        </a>
+                    </li> -->
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="nav-link">
+                    <a href="#">
+                        <i class="fa-solid fa-arrow-right-from-bracket icon flipped"></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+            </div>
+        </div>
+    </nav>
+
+
+    <section class="main">
+        <div class="header-heart">
+            <p>Heart Attack Prediction</p>
+            <img class="icon-heart" src="assets/heart.png" alt="">
+        </div>
+
+        <div class="form-input">
+            <form id="heart-attack-form" action="/predict" method="POST">
+                <!-- Age -->
+                <div>
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" placeholder="Enter age" required>
+                </div>
+                
+                <!-- Sex -->
+                <div>
+                    <label for="sex">Sex</label>
+                    <select id="sex" name="sex" required>
+                        <option value="" disabled selected>Select gender</option>
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+                </select>
+                </div>
+                
+        
+                <!-- Chest Pain Type -->
+                <div>
+                    <label for="cp">Chest Pain Type</label>
+                    <select id="cp" name="cp" required>
+                        <option value="" disabled selected>Select type</option>
+                        <option value="typical angina">typical angina</option>
+                        <option value="atypical angina">atypical angina</option>
+                        <option value="non-anginal pain">non-anginal pain</option>
+                        <option value="asymptomatic">asymptomatic</option>
+                    </select>
+                </div>
+                
+        
+                <!-- Resting Blood Pressure -->
+                <div>
+                    <label for="trestbps">Resting Blood Pressure (mmHg)</label>
+                    <input type="number" id="trestbps" name="trestbps" placeholder="Enter resting blood pressure" required>
+                </div>
+                
+        
+                <!-- Cholesterol -->
+                <div>
+                    <label for="chol">Cholesterol (mg/dL)</label>
+                    <input type="number" id="chol" name="chol" placeholder="Enter cholesterol level" required>
+                </div>
+                
+        
+                <!-- Fasting Blood Sugar -->
+                <div>
+                    <label for="fbs">Fasting Blood Sugar > 120 mg/dL</label>
+                    <select id="fbs" name="fbs" required>
+                        <option value="" disabled selected>Select option</option>
+                        <option value="NO">NO</option>
+                        <option value="YES">YES</option>
+                    </select>
+                </div>
+                
+        
+                <!-- Resting ECG -->
+                <div>
+                    <label for="restecg">Resting ECG</label>
+                    <select id="restecg" name="restecg" required>
+                        <option value="" disabled selected>Select type</option>
+                        <option value="Normal">Normal</option>
+                        <option value="ST-T Wafe Abnormality">ST-T Wafe Abnormality</option>
+                        <option value="Left Ventricular Hypertrophy">Left Ventricular Hypertrophy</option>
+                    </select>
+                </div>
+                
+        
+                <!-- Maximum Heart Rate -->
+                <div>
+                    <label for="thalachh">Maximum Heart Rate</label>
+                    <input type="number" id="thalachh" name="thalachh" placeholder="Enter maximum heart rate" required>
+                </div>
+        
+                <!-- Exercise-Induced Angina -->
+                <div>
+                    <label for="exang">Exercise-Induced Angina</label>
+                    <select id="exang" name="exang" required>
+                        <option value="" disabled selected>Select option</option>
+                        <option value="NO">NO</option>
+                        <option value="YES">YES</option>
+                    </select>
+                </div>
+                
+        
+                <!-- Oldpeak -->
+                <div>
+                    <label for="oldpeak">ST Depression (Oldpeak)</label>
+                    <input type="number" id="oldpeak" name="oldpeak" placeholder="Enter oldpeak value" step="0.1" required> 
+                </div>
+        
+                <!-- Slope -->
+                <div>
+                    <label for="slope">Slope of the Peak Exercise ST Segment</label>
+                    <select id="slope" name="slope" required>
+                        <option value="" disabled selected>Select slope</option>
+                        <option value="Upsloping">Upsloping</option>
+                        <option value="Flat">Flat</option>
+                        <option value="Downsloping">Downsloping</option>
+                    </select>
+                </div>
+                
+                <!-- Number of Major Vessels -->
+                <div>
+                    <label for="ca">Number of Major Vessels Colored by Fluoroscopy (0-4)</label>
+                    <input type="number" id="ca" name="ca" placeholder="Enter number of vessels" min="0" max="4" required>
+                </div>
+                
+        
+                <!-- Thalassemia -->
+                <div>
+                    <label for="thal">Thalassemia</label>
+                    <select id="thal" name="thal" required>
+                        <option value="" disabled selected>Select type</option>
+                        <option value="Normal">Normal</option>
+                        <option value="Fixed Defect">Fixed Defect</option>
+                        <option value="Reversible Defect">Reversible Defect</option>
+                    </select>   
+                </div>
+                
+
+                <!-- Submit -->
+                <button type="submit">Predict</button>
+        </div>
+    </section>
+
+    
+    <div id="result-modal" class="modal">
+        <div class="modal-content">
+            <p id="result-message"></p>
+            <button class="close-btn">Close</button>
+        </div>
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/dashboard.js"></script>
+    
+</body>
+</html>
