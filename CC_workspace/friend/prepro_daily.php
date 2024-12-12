@@ -1,6 +1,8 @@
 <?php
 function process_and_store_frames($user_id, $data) {
     global $pdo;
+
+    // Menjumlahkan nilai x, y, dan z untuk setiap timestamp
     $summedData = [];
     foreach ($data as $timestamp => $values) {
         $summedData[$timestamp] = [
@@ -13,14 +15,17 @@ function process_and_store_frames($user_id, $data) {
         ];
     }
 
+    // Fungsi untuk mengolah data menjadi frames
     function get_frames($data) {
-        $Fs = 20; 
-        $frame_size = 80;
-        $hop_size = 40;
-        $N_FEATURES = 3;
+        $Fs = 20; // Frekuensi sampling
+        $frame_size = 80; // Ukuran frame
+        $hop_size = 40; // Ukuran hop
+        $N_FEATURES = 3; // Jumlah fitur (x, y, z)
 
         $frames = [];
         $timestamps = array_keys($data);
+
+        // Menyusun frames dengan ukuran dan hop yang sudah ditentukan
         for ($i = 0; $i < count($timestamps) - $frame_size; $i += $hop_size) {
             $frame = [];
             for ($j = $i; $j < $i + $frame_size; $j++) {
@@ -31,18 +36,21 @@ function process_and_store_frames($user_id, $data) {
                     $data[$timestamp]['z']
                 ];
             }
-            $frames[] = [$frame];
+            $frames[] = [$frame]; // Menambahkan frame ke array
         }
 
         return $frames;
     }
+
+    // Mengolah data menjadi frames
     $frames = get_frames($summedData);
 
-    // Gabungkan semua frame menjadi JSON
+    // Mengonversi frames ke format JSON
     $jsonData = json_encode($frames);
 
-    // Simpan ke database
-    $stmt = $pdo->prepare("INSERT INTO user_activities (user_id, activities_data) VALUES (:user_id, :data)
+    // Menyimpan data ke database
+    $stmt = $pdo->prepare("INSERT INTO user_activities (user_id, activities_data) 
+                           VALUES (:user_id, :data) 
                            ON DUPLICATE KEY UPDATE activities_data = :data");
     $stmt->execute([
         ':user_id' => $user_id,

@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Silkscreen:wght@400;700&display=swap');
+
+body {
+    font-family:'Poppins', 'sans-serif';
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('/Website/asset/bg.jpg'); /* Ganti dengan URL foto Anda */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay hitam dengan transparansi */
+    z-index: 0;
+}
+.app-header {
+    text-align: center; /* Pusatkan logo dan nama aplikasi */
+    margin-bottom: 1px; /* Mengurangi jarak antara logo dan nama aplikasi */
+}
+
+.logo {
+    width: 60px; /* Ukuran logo */
+    height: auto;
+    border-radius: 10px; /* Sesuaikan dengan rasio asli logo */
+    margin-bottom: 5px; /* Jarak antara logo dan nama aplikasi */
+}
+
+h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0; /* Hapus margin atas untuk mengatur jarak dengan logo */
+    margin-bottom: 5px; /* Jarak antara judul dan input */
+    background: linear-gradient(90deg, #28b2c4, #00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.container {
+    position: relative;
+    background: rgba(255, 255, 255, 0.5); /* Warna putih dengan transparansi 80% */
+    padding: 30px; /* Ruang di dalam container */
+    border-radius: 25px; /* Sudut membulat */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Pertegas bayangan */
+    border: 1px solid rgba(221, 221, 221, 0.5); /* Border dengan transparansi */
+    z-index: 1; /* Pastikan di atas elemen lain */
+    max-width: 90%; /* Responsif untuk layar kecil */
+    text-align: center; /* Pusatkan teks di dalam */
+    backdrop-filter: blur(5px); /* Tambahkan efek blur di belakang */
+}
+
+form {
+    display: flex; /* Gunakan Flexbox */
+    flex-direction: column; /* Susun elemen secara vertikal */
+    align-items: center; /* Pusatkan elemen secara horizontal */
+    width: 100%; /* Lebar penuh form */
+    max-width: 300px; /* Atur lebar maksimum form */
+    margin: 0 auto; /* Pusatkan form di tengah layar secara horizontal */
+}
+
+button {
+    padding: 10px;
+    border: none;
+    background-color: #28b2c4;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+button:hover {
+    background-color: #1c7884;
+}
+
+
+input {
+    width: 200px; /* Tetapkan lebar tetap agar input terlihat proporsional */
+    padding: 10px;
+    margin: 10px 0; /* Jarak antara elemen input */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+.error-message {
+    color: red;
+    margin: 10px 0;
+}

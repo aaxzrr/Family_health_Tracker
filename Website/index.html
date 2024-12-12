@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/dashboard.css">
+    
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="asset/logo.png">
+
+
+    
+    <title>Family Health Tracker | Dashboard User</title>
+</head>
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="asset/logo.png" alt="logo">
+                </span>
+
+                <div class="text header-text">
+                    <span class="name">Family Health</span>
+                    <span class="name">Tracker</span>
+                </div>
+            </div>
+
+            <i class="fa-solid fa-circle-chevron-right toggle"></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="#main">
+                            <i class="fa-solid fa-house icon"></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="form-heartattack.html">
+                            <i class="fa-solid fa-heart-pulse icon"></i>
+                            <span class="text nav-text">Predict</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class="fa-solid fa-people-roof icon"></i>
+                            <span class="text nav-text">Family</span>
+                        </a>
+                    </li>
+                    <!-- <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-stopwatch icon'></i>
+                            <span class="text nav-text">Steps</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-bell icon'></i>
+                            <span class="text nav-text">Notifikasi</span>
+                        </a>
+                    </li> -->
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="nav-link">
+                    <a href="#">
+                        <i class="fa-solid fa-arrow-right-from-bracket icon flipped"></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+            </div>
+        </div>
+    </nav>
+
+
+    <section class="main">
+        <section class="dashboard">
+            <div class="top">
+                <div class="text">Hello, Ahmad👋</div>
+                <li class="search-box">
+                    <i class="fa-solid fa-magnifying-glass icon"></i>
+                    <input type="text" placeholder="Search...">
+                </li>
+            </div>
+
+            <div class="small-header">
+                Progress For Today
+            </div>
+
+            <div class="card">
+                <div class="card-1">
+                    <div class="content-header">
+                        <div class="small-header">Heart Rate</div>
+                        <div class="small-header">82 - 90 BPM</div>                         
+                    </div>
+                    <div class="heart-rate-container">
+                        <canvas id="heartRateLineChart"></canvas>
+                    </div>                      
+                </div>
+                <div class="card-2">
+                    <div class="card-3">
+                        <img class="icon" src="asset/running.png" alt="">
+                        <p> Running <br> <span class="tiny">1000 Steps</span> </p>
+                    </div>
+                    <div class="card-3">
+                        <img class="icon" src="asset/calories.png" alt="">
+                        <p> Calories <br> <span class="tiny">450 Kcal</span> </p>
+                    </div>
+                    <div class="card-3">
+                        <img class="icon" src="asset/sleep.png" alt="">
+                        <p> Sleep <br> <span class="tiny">1000 Scoure</span> </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header">
+                <div class="smaller">
+                    Challange
+                </div>
+                <div class="small-header">
+                     Today's Activity
+                </div>
+            </div>
+
+            <div class="activityChallenge">   
+
+                <div class="challange-container">
+                    <div class="challange-running">
+                        <img class="icon-challange" src="asset/running (2).png" alt="">
+                        <p> <span class="time">100 Days</span> <br> Running Challange </p>
+                        <div class="progress">
+                            <svg width="70" height="70">
+                                <circle class="background" cx="35" cy="35" r="30"></circle>
+                                <circle class="value" cx="35" cy="35" r="30"></circle>
+                            </svg>
+                            <div class="percentage">65</div>
+                        </div>
+                    </div>
+                    <div class="challange-weightloss">
+                        <img class="icon-challange" src="asset/weightloss.png" alt="">
+                        <p> <span class="time">90 Days</span> <br> Loss Weight to 15 Kg </p>
+                        <div class="progressW">
+                            <svg width="70" height="70">
+                                <circle class="backgroundW" cx="35" cy="35" r="30"></circle>
+                                <circle class="valueW" cx="35" cy="35" r="30"></circle>
+                            </svg>
+                            <div class="percentageW">15kg</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-container">
+                    <div class="chart-wrapper">
+                      <canvas id="activityChart"></canvas>
+                      <div class="chart-text">
+                        <span>+60%</span>
+                        <p>Total</p>
+                      </div>
+                    </div>
+                    <div class="activity-details">
+                      <p><span class="dot blue"></span> Walking </p>
+                      <p><span class="dot orange"></span> Running </p>
+                      <p><span class="dot purple"></span> Sitting </p>
+                    </div>
+                </div>
+            </div>
+
+                
+            </div>
+        </section>
+    
+    
+        <section class="profile">
+            <div class="top">
+                <div class="text">Profile</div>
+                <div class="small-text">Edit</div>
+            </div>
+
+            <div class="avatar">
+                <img src="asset/avatar.png" alt="">
+                <div class="text">
+                    Ahmad
+                </div>
+                <div class="small-text">
+                    @ahmadd
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="weight">
+                    <div class="small-text">Weight</div>
+                    <div class="text">65 Kg</div>
+                </div>
+
+                <div class="height">
+                    <div class="small-text">Height</div>
+                    <div class="text">165 cm</div>
+                </div>
+
+                <div class="age">
+                    <div class="small-text">Age</div>
+                    <div class="text">24</div>
+                </div>
+            </div>
+
+            <div class="text-calendar">
+                Calendar
+            </div>
+            
+            <div class="calendar light">
+                <div class="calendar-header">
+                    <span class="month-picker" id="month-picker">February</span>
+                    <div class="year-picker">
+                        <span class="year-change" id="prev-year">
+                            <pre><</pre>
+                        </span>
+                        <span id="year">2021</span>
+                        <span class="year-change" id="next-year">
+                            <pre>></pre>
+                        </span>
+                    </div>
+                </div>
+                <div class="calendar-body">
+                    <div class="calendar-week-day">
+                        <div>S</div>
+                        <div>M</div>
+                        <div>T</div>
+                        <div>W</div>
+                        <div>T</div>
+                        <div>F</div>
+                        <div>S</div>
+                    </div>
+                    <div class="calendar-days">
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                    </div>
+                </div>
+                <div class="month-list"></div>
+            </div>
+        
+        </section>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
